@@ -19,11 +19,13 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
+    "prettier.write": "prettier --write './src/**/*.{ts,tsx}'",
     "generate": "stencil generate"
   },
   "devDependencies": {
     "@stencil/core": "^1.8.4",
-    "@stencil/sass": "^1.1.1"
+    "@stencil/sass": "^1.1.1",
+    "prettier": "^1.19.1"
   },
   "license": "MIT",
   "dependencies": {
