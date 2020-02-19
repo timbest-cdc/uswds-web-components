@@ -19,7 +19,7 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
-        "src/uswds/src/stylesheets/packages/_required.scss",
+         "uswds/src/stylesheets/packages/_required.scss"
       ]
     })
   ]

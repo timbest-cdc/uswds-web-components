@@ -1,3 +1,3 @@
-[submodule "uswds-web-components/src/uswds"]
-	path = src/uswds
+[submodule "uswds"]
+	path = uswds
 	url = git@github.com:uswds/uswds.git

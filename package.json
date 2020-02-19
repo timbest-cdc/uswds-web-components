@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "build.global": "sass src/global.scss src/global.css",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -25,7 +26,8 @@
   "devDependencies": {
     "@stencil/core": "^1.8.4",
     "@stencil/sass": "^1.1.1",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0"
   },
   "license": "MIT",
   "dependencies": {
