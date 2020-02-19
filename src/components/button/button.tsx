@@ -40,8 +40,8 @@ export class Button {
       case "outline":
         classes.push(`${component}--${this.variant}`);
         break;
-      case "outline":
-        classes.push(`${component}--${this.variant}`);
+      case "outline-inverse":
+        classes.push(`${component}--outline ${component}--inverse`);
         break;
       default:
         throw new Error(
