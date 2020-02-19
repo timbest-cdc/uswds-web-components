@@ -22,5 +22,8 @@ export const config: Config = {
          "uswds/src/stylesheets/packages/_required.scss"
       ]
     })
-  ]
+  ],
+  testing: {
+    testPathIgnorePatterns: ["uswds/"]
+  }
 };
