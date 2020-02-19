@@ -5,6 +5,8 @@ jobs:
       - image: circleci/node:latest-browsers
     steps:
       - checkout
+      - run: git submodule init
+      - run: git submodule update
       - run: npm install
       - run: npm test
 workflows:
