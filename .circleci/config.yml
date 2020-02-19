@@ -1,9 +1,8 @@
 version: 2.1
 jobs:
   build-and-test:
-    build:
-      docker:
-        - image: circleci/node:latest-browsers
+    docker:
+      - image: circleci/node:latest-browsers
     steps:
       - checkout
       - node/with-cache:
