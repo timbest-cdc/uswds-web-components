@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node:latest-browsers
+  node: circleci/node:jessie-browsers
 jobs:
   build-and-test:
     executor:
