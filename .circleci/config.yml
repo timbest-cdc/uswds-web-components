@@ -5,11 +5,26 @@ jobs:
       - image: circleci/node:latest-browsers
     steps:
       - checkout
-      - run: git submodule init
-      - run: git submodule update
-      - run: npm install
-      - run: npm run build
-      - run: npm run test
+      - run:
+        name: Setup dependencies
+        command: |
+          git submodule init
+          git submodule update
+          npm install
+          npm run build
+      - run:
+        name: Setup Code Climate test-reporter
+        command: |
+        # download test reporter as a static binary
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+      - run:
+        name: Run tests
+        command: |
+          sudo docker-php-ext-enable xdebug
+          ./cc-test-reporter before-build
+          npm run test.coverage
+          ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
 workflows:
     build-and-test:
       jobs:

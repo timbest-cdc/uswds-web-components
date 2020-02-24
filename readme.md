@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/timothybest-usds/uswds-web-components.svg?style=svg)](https://circleci.com/gh/timothybest-usds/uswds-web-components)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d86cbe1bc50ef8f23c1e/maintainability)](https://codeclimate.com/github/timothybest-usds/uswds-web-components/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d86cbe1bc50ef8f23c1e/test_coverage)](https://codeclimate.com/github/timothybest-usds/uswds-web-components/test_coverage)
 
 setup
 ```
