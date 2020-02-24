@@ -16,11 +16,11 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "build.global": "sass src/global.scss src/global.css",
+    "build.global": "cd uswds && npm install && npm run build:css && cd .. && sass src/global.scss src/global.css",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
+    "test": "stencil test --spec --e2e --screenshot",
     "test.coverage": "nyc npm run test",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.watch": "stencil test --spec --e2e --screenshot --watchAll",
     "prettier.write": "prettier --write './src/**/*.{ts,tsx}'",
     "generate": "stencil generate"
   },
@@ -34,12 +34,11 @@
     "nyc": "^15.0.0",
     "prettier": "^1.19.1",
     "puppeteer": "1.20.0",
-    "sass": "^1.25.0"
+    "sass": "^1.25.0",
+    "yargs": "^15.1.0"
   },
   "license": "MIT",
-  "dependencies": {
-    "uswds": "^2.4.0"
-  },
+  "dependencies": {},
   "nyc": {
     "extension": [
       ".ts",

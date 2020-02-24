@@ -1,4 +1,3 @@
-import "uswds";
 import { Component, h, Prop } from "@stencil/core";
 
 const component = "usa-button";
@@ -44,6 +43,8 @@ export class Button {
   }
 
   getClasses(): string {
+    console.log(this.variant)
+
     const classes: string[] = [component, this.getVariantClass()];
 
     if (this.size === "big") {
