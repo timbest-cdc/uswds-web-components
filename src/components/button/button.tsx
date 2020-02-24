@@ -23,13 +23,7 @@ export class Button {
   @Prop() focused?: boolean;
   @Prop() href?: string;
 
-  getClasses(): string {
-    const classes: string[] = [component];
-
-    if (this.size === "big") {
-      classes.push(`${component}--big`);
-    }
-
+  getVariantClass(): string {
     switch (this.variant) {
       case undefined:
       case "default":
@@ -38,15 +32,22 @@ export class Button {
       case "accent-cool":
       case "base":
       case "outline":
-        classes.push(`${component}--${this.variant}`);
-        break;
+        return `${component}--${this.variant}`;
       case "outline-inverse":
-        classes.push(`${component}--outline ${component}--inverse`);
-        break;
+        return `${component}--outline ${component}--inverse`;
       default:
         throw new Error(
           `Invalid varient "${this.variant}" passed for component "${component}"`
         );
+    }
+    return "";
+  }
+
+  getClasses(): string {
+    const classes: string[] = [component, this.getVariantClass()];
+
+    if (this.size === "big") {
+      classes.push(`${component}--big`);
     }
 
     if (this.unstyled) {
