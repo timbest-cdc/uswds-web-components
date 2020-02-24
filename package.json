@@ -53,7 +53,8 @@
       "src/**/*.tsx"
     ],
     "reporter": [
-      "html"
+      "html",
+      "lcov"
     ],
     "all": true
   }
