@@ -11,7 +11,7 @@ This is a web component library for [The U.S. Web Design System](https://designs
 TODO
 
 - Publish to npm
-- Add framwork implmentation details see: https://stenciljs.com/docs/overview
+- Add framework implementation details see: https://stenciljs.com/docs/overview
 
 ## Documentation
 
