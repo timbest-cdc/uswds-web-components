@@ -27,13 +27,13 @@ export class Banner {
                 <p class="usa-banner__header-text">
                   An official website of the United States government
                 </p>
-                <p class="usa-banner__header-action" aria-hidden={open}>
+                <p class="usa-banner__header-action" aria-hidden="true">
                   Here’s how you know
                 </p>
               </div>
               <button
                 class="usa-accordion__button usa-banner__button"
-                aria-expanded={`${open}`}
+                aria-expanded="false"
                 aria-controls="gov-banner-demo"
               >
                 <span class="usa-banner__button-text">Here’s how you know</span>
@@ -43,8 +43,6 @@ export class Banner {
           <div
             class="usa-banner__content usa-accordion__content"
             id="gov-banner-demo"
-            aria-hidden={!open}
-            hidden={!open}
           >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
