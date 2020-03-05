@@ -1,5 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { Alert } from "./Alert";
+import { Alert } from "./alert";
 
 it("defaults to the info alert", async () => {
   const page = await newSpecPage({
