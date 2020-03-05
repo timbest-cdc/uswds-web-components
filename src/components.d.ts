@@ -25,6 +25,7 @@ export namespace Components {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaTag {}
 }
 
 declare global {
@@ -35,8 +36,15 @@ declare global {
     prototype: HTMLUsaButtonElement;
     new (): HTMLUsaButtonElement;
   };
+
+  interface HTMLUsaTagElement extends Components.UsaTag, HTMLStencilElement {}
+  var HTMLUsaTagElement: {
+    prototype: HTMLUsaTagElement;
+    new (): HTMLUsaTagElement;
+  };
   interface HTMLElementTagNameMap {
     'usa-button': HTMLUsaButtonElement;
+    'usa-tag': HTMLUsaTagElement;
   }
 }
 
@@ -56,9 +64,11 @@ declare namespace LocalJSX {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaTag {}
 
   interface IntrinsicElements {
     'usa-button': UsaButton;
+    'usa-tag': UsaTag;
   }
 }
 
@@ -69,6 +79,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
+      'usa-tag': LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
     }
   }
 }
