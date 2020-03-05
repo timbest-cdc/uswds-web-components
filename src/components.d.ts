@@ -14,7 +14,7 @@ export namespace Components {
     'bordered'?: boolean;
   }
   interface UsaAccordionItem {
-    'accordionId': string;
+    '_id': string;
     'heading': string;
   }
   interface UsaAlert {
@@ -106,7 +106,7 @@ declare namespace LocalJSX {
     'bordered'?: boolean;
   }
   interface UsaAccordionItem {
-    'accordionId': string;
+    '_id'?: string;
     'heading': string;
   }
   interface UsaAlert {

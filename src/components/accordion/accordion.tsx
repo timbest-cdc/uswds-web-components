@@ -2,7 +2,8 @@ import { Component, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "usa-accordion",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-accordion.scss"
+  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-accordion.scss",
+  shadow: true
 })
 export class Accordion {
   @Prop() bordered?: boolean;
