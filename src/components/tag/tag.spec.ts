@@ -1,6 +1,5 @@
-import { Tag } from './tag';
-import {newSpecPage} from "@stencil/core/testing";
-
+import { Tag } from "./tag";
+import { newSpecPage } from "@stencil/core/testing";
 
 it("renders a tag", async () => {
   const page = await newSpecPage({

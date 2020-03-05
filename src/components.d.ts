@@ -5,42 +5,55 @@
  * It contains typing information for all components that exist in this project.
  */
 
-
-import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 
 export namespace Components {
+  interface UsaAlert {
+    interactive?: boolean;
+    variant?: "success" | "warning" | "error" | "info";
+  }
   interface UsaBanner {
-    'tld'?: "mil" | "gov";
+    tld?: "mil" | "gov";
   }
   interface UsaButton {
-    'active'?: boolean;
-    'disabled'?: boolean;
-    'focused'?: boolean;
-    'hover'?: boolean;
-    'href'?: string;
-    'size'?: "big";
-    'unstyled'?: boolean;
-    'variant'?: | "default"
-    | "secondary"
-    | "accent-cool"
-    | "base"
-    | "outline"
-    | "outline-inverse";
+    active?: boolean;
+    disabled?: boolean;
+    focused?: boolean;
+    hover?: boolean;
+    href?: string;
+    size?: "big";
+    unstyled?: boolean;
+    variant?:
+      | "default"
+      | "secondary"
+      | "accent-cool"
+      | "base"
+      | "outline"
+      | "outline-inverse";
   }
   interface UsaTag {}
 }
 
 declare global {
+  interface HTMLUsaAlertElement
+    extends Components.UsaAlert,
+      HTMLStencilElement {}
+  var HTMLUsaAlertElement: {
+    prototype: HTMLUsaAlertElement;
+    new (): HTMLUsaAlertElement;
+  };
 
-
-  interface HTMLUsaBannerElement extends Components.UsaBanner, HTMLStencilElement {}
+  interface HTMLUsaBannerElement
+    extends Components.UsaBanner,
+      HTMLStencilElement {}
   var HTMLUsaBannerElement: {
     prototype: HTMLUsaBannerElement;
     new (): HTMLUsaBannerElement;
   };
 
-  interface HTMLUsaButtonElement extends Components.UsaButton, HTMLStencilElement {}
+  interface HTMLUsaButtonElement
+    extends Components.UsaButton,
+      HTMLStencilElement {}
   var HTMLUsaButtonElement: {
     prototype: HTMLUsaButtonElement;
     new (): HTMLUsaButtonElement;
@@ -52,51 +65,59 @@ declare global {
     new (): HTMLUsaTagElement;
   };
   interface HTMLElementTagNameMap {
-    'usa-banner': HTMLUsaBannerElement;
-    'usa-button': HTMLUsaButtonElement;
-    'usa-tag': HTMLUsaTagElement;
+    "usa-alert": HTMLUsaAlertElement;
+    "usa-banner": HTMLUsaBannerElement;
+    "usa-button": HTMLUsaButtonElement;
+    "usa-tag": HTMLUsaTagElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface UsaAlert {
+    interactive?: boolean;
+    variant?: "success" | "warning" | "error" | "info";
+  }
   interface UsaBanner {
-    'tld'?: "mil" | "gov";
+    tld?: "mil" | "gov";
   }
   interface UsaButton {
-    'active'?: boolean;
-    'disabled'?: boolean;
-    'focused'?: boolean;
-    'hover'?: boolean;
-    'href'?: string;
-    'size'?: "big";
-    'unstyled'?: boolean;
-    'variant'?: | "default"
-    | "secondary"
-    | "accent-cool"
-    | "base"
-    | "outline"
-    | "outline-inverse";
+    active?: boolean;
+    disabled?: boolean;
+    focused?: boolean;
+    hover?: boolean;
+    href?: string;
+    size?: "big";
+    unstyled?: boolean;
+    variant?:
+      | "default"
+      | "secondary"
+      | "accent-cool"
+      | "base"
+      | "outline"
+      | "outline-inverse";
   }
   interface UsaTag {}
 
   interface IntrinsicElements {
-    'usa-banner': UsaBanner;
-    'usa-button': UsaButton;
-    'usa-tag': UsaTag;
+    "usa-alert": UsaAlert;
+    "usa-banner": UsaBanner;
+    "usa-button": UsaButton;
+    "usa-tag": UsaTag;
   }
 }
 
 export { LocalJSX as JSX };
 
-
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'usa-banner': LocalJSX.UsaBanner & JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
-      'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
-      'usa-tag': LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
+      "usa-alert": LocalJSX.UsaAlert &
+        JSXBase.HTMLAttributes<HTMLUsaAlertElement>;
+      "usa-banner": LocalJSX.UsaBanner &
+        JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
+      "usa-button": LocalJSX.UsaButton &
+        JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
+      "usa-tag": LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
     }
   }
 }
-
-

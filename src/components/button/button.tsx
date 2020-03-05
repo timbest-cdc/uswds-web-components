@@ -43,7 +43,7 @@ export class Button {
   }
 
   getClasses(): string {
-    console.log(this.variant)
+    console.log(this.variant);
 
     const classes: string[] = [component, this.getVariantClass()];
 

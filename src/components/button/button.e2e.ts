@@ -12,8 +12,8 @@ const renderButtons = async (variant: string) => {
     <usa-button variant="${variant}" unstyled={true}>Unstyled button</usa-button>
     <usa-button variant="${variant}" big={true}>Big</usa-button>
   `);
-  await page.compareScreenshot(variant, {fullPage: false});
-}
+  await page.compareScreenshot(variant, { fullPage: false });
+};
 
 describe("usa-button", () => {
   it("Default", () => renderButtons("default"));
