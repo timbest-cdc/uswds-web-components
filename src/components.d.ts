@@ -10,6 +10,13 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface UsaAccordion {
+    'bordered'?: boolean;
+  }
+  interface UsaAccordionItem {
+    'accordionId': string;
+    'heading': string;
+  }
   interface UsaAlert {
     'interactive'?: boolean;
     'variant'?: "success" | "warning" | "error" | "info";
@@ -42,6 +49,18 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLUsaAccordionElement extends Components.UsaAccordion, HTMLStencilElement {}
+  var HTMLUsaAccordionElement: {
+    prototype: HTMLUsaAccordionElement;
+    new (): HTMLUsaAccordionElement;
+  };
+
+  interface HTMLUsaAccordionItemElement extends Components.UsaAccordionItem, HTMLStencilElement {}
+  var HTMLUsaAccordionItemElement: {
+    prototype: HTMLUsaAccordionItemElement;
+    new (): HTMLUsaAccordionItemElement;
+  };
+
   interface HTMLUsaAlertElement extends Components.UsaAlert, HTMLStencilElement {}
   var HTMLUsaAlertElement: {
     prototype: HTMLUsaAlertElement;
@@ -72,6 +91,8 @@ declare global {
     new (): HTMLUsaTagElement;
   };
   interface HTMLElementTagNameMap {
+    'usa-accordion': HTMLUsaAccordionElement;
+    'usa-accordion-item': HTMLUsaAccordionItemElement;
     'usa-alert': HTMLUsaAlertElement;
     'usa-banner': HTMLUsaBannerElement;
     'usa-button': HTMLUsaButtonElement;
@@ -81,6 +102,13 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface UsaAccordion {
+    'bordered'?: boolean;
+  }
+  interface UsaAccordionItem {
+    'accordionId': string;
+    'heading': string;
+  }
   interface UsaAlert {
     'interactive'?: boolean;
     'variant'?: "success" | "warning" | "error" | "info";
@@ -110,6 +138,8 @@ declare namespace LocalJSX {
   interface UsaTag {}
 
   interface IntrinsicElements {
+    'usa-accordion': UsaAccordion;
+    'usa-accordion-item': UsaAccordionItem;
     'usa-alert': UsaAlert;
     'usa-banner': UsaBanner;
     'usa-button': UsaButton;
@@ -124,6 +154,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'usa-accordion': LocalJSX.UsaAccordion & JSXBase.HTMLAttributes<HTMLUsaAccordionElement>;
+      'usa-accordion-item': LocalJSX.UsaAccordionItem & JSXBase.HTMLAttributes<HTMLUsaAccordionItemElement>;
       'usa-alert': LocalJSX.UsaAlert & JSXBase.HTMLAttributes<HTMLUsaAlertElement>;
       'usa-banner': LocalJSX.UsaBanner & JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;

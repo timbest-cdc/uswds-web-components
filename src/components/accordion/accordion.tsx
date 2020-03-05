@@ -1,4 +1,4 @@
-import { Component, h, Prop, Host } from "@stencil/core";
+import { Component, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "usa-accordion",
@@ -20,40 +20,6 @@ export class Accordion {
       <div class={this.getClasses()}>
         <slot />
       </div>
-    );
-  }
-}
-
-@Component({
-  tag: "usa-accordion-item",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-accordion.scss"
-})
-export class AccordionItem {
-  @Prop() id: string;
-  @Prop() expanded?: boolean;
-  @Prop() heading: string;
-
-  constructor(id: string, heading: string) {
-    this.id = id;
-    this.heading = heading;
-  }
-
-  render() {
-    return (
-      <Host>
-        <h2 class="usa-accordion__heading">
-          <button
-            class="usa-accordion__button"
-            aria-expanded={this.expanded || false}
-            aria-controls={this.id}
-          >
-            {this.heading}
-          </button>
-        </h2>
-        <div id={this.id} class="usa-accordion__content usa-prose">
-          <slot />
-        </div>
-      </Host>
     );
   }
 }
