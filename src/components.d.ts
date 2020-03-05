@@ -32,6 +32,10 @@ export namespace Components {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaLink {
+    'external'?: boolean;
+    'href'?: string;
+  }
   interface UsaTag {}
 }
 
@@ -56,6 +60,12 @@ declare global {
     new (): HTMLUsaButtonElement;
   };
 
+  interface HTMLUsaLinkElement extends Components.UsaLink, HTMLStencilElement {}
+  var HTMLUsaLinkElement: {
+    prototype: HTMLUsaLinkElement;
+    new (): HTMLUsaLinkElement;
+  };
+
   interface HTMLUsaTagElement extends Components.UsaTag, HTMLStencilElement {}
   var HTMLUsaTagElement: {
     prototype: HTMLUsaTagElement;
@@ -65,6 +75,7 @@ declare global {
     'usa-alert': HTMLUsaAlertElement;
     'usa-banner': HTMLUsaBannerElement;
     'usa-button': HTMLUsaButtonElement;
+    'usa-link': HTMLUsaLinkElement;
     'usa-tag': HTMLUsaTagElement;
   }
 }
@@ -92,12 +103,17 @@ declare namespace LocalJSX {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaLink {
+    'external'?: boolean;
+    'href'?: string;
+  }
   interface UsaTag {}
 
   interface IntrinsicElements {
     'usa-alert': UsaAlert;
     'usa-banner': UsaBanner;
     'usa-button': UsaButton;
+    'usa-link': UsaLink;
     'usa-tag': UsaTag;
   }
 }
@@ -111,6 +127,7 @@ declare module "@stencil/core" {
       'usa-alert': LocalJSX.UsaAlert & JSXBase.HTMLAttributes<HTMLUsaAlertElement>;
       'usa-banner': LocalJSX.UsaBanner & JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
+      'usa-link': LocalJSX.UsaLink & JSXBase.HTMLAttributes<HTMLUsaLinkElement>;
       'usa-tag': LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
     }
   }
