@@ -28,7 +28,8 @@ export const config: Config = {
   ],
   copy: [
     { src: "../uswds/src/img", dest: "build/img" },
-    { src: "../uswds/src/fonts", dest: "build/fonts" }
+    { src: "../uswds/src/fonts", dest: "build/fonts" },
+    { src: "../src/global.css", dest: "build/global.css" }
   ],
   testing: {
     testPathIgnorePatterns: ["uswds/"]
