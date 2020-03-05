@@ -13,8 +13,8 @@ export class Banner {
   }
 
   render() {
-    const tld = this.tld ?? "gov";
-    const open = this.open ?? false;
+    const tld = this.tld ? this.tld : "gov";
+    const open = this.open ? this.open : false;
     return (
       <section class="usa-banner" aria-label="Official government website">
         <div class="usa-accordion">
@@ -31,7 +31,7 @@ export class Banner {
                 <p class="usa-banner__header-text">
                   An official website of the United States government
                 </p>
-                <p class="usa-banner__header-action" aria-hidden="true">
+                <p class="usa-banner__header-action" aria-hidden={open}>
                   Here’s how you know
                 </p>
               </div>
@@ -50,7 +50,7 @@ export class Banner {
           <div
             class="usa-banner__content usa-accordion__content"
             id="gov-banner-demo"
-            hidden={!open}
+            aria-hidden={!open}
           >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
