@@ -13,7 +13,6 @@ export class AccordionItem {
         <h2 class="usa-accordion__heading">
           <button
             class="usa-accordion__button"
-            aria-expanded="true"
             aria-controls={this.accordionId}
           >
             {this.heading}
