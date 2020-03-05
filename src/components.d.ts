@@ -10,6 +10,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface UsaBanner {
+    'tld'?: "mil" | "gov";
+  }
   interface UsaButton {
     'active'?: boolean;
     'disabled'?: boolean;
@@ -30,17 +33,27 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLUsaBannerElement extends Components.UsaBanner, HTMLStencilElement {}
+  var HTMLUsaBannerElement: {
+    prototype: HTMLUsaBannerElement;
+    new (): HTMLUsaBannerElement;
+  };
+
   interface HTMLUsaButtonElement extends Components.UsaButton, HTMLStencilElement {}
   var HTMLUsaButtonElement: {
     prototype: HTMLUsaButtonElement;
     new (): HTMLUsaButtonElement;
   };
   interface HTMLElementTagNameMap {
+    'usa-banner': HTMLUsaBannerElement;
     'usa-button': HTMLUsaButtonElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface UsaBanner {
+    'tld'?: "mil" | "gov";
+  }
   interface UsaButton {
     'active'?: boolean;
     'disabled'?: boolean;
@@ -58,6 +71,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'usa-banner': UsaBanner;
     'usa-button': UsaButton;
   }
 }
@@ -68,6 +82,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'usa-banner': LocalJSX.UsaBanner & JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
     }
   }
