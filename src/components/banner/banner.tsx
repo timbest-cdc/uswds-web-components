@@ -1,14 +1,20 @@
-import { Prop, Component, h, getAssetPath } from "@stencil/core";
+import { Prop, Component, h, getAssetPath, State } from "@stencil/core";
 
 @Component({
   tag: "usa-banner",
   styleUrl: "../../../uswds/src/stylesheets/packages/_usa-banner.scss"
 })
 export class Banner {
+  @State() open?: boolean;
   @Prop() tld?: "mil" | "gov";
+
+  toggleOpen() {
+    this.open = !this.open;
+  }
 
   render() {
     const tld = this.tld ?? "gov";
+    const open = this.open ?? false;
     return (
       <section class="usa-banner" aria-label="Official government website">
         <div class="usa-accordion">
@@ -33,6 +39,7 @@ export class Banner {
                 class="usa-accordion__button usa-banner__button"
                 aria-expanded="false"
                 aria-controls="gov-banner-demo"
+                onClick={() => { this.toggleOpen() }}
               >
                 <span class="usa-banner__button-text">Here’s how you know</span>
               </button>
@@ -41,6 +48,7 @@ export class Banner {
           <div
             class="usa-banner__content usa-accordion__content"
             id="gov-banner-demo"
+            hidden={!open}
           >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
