@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import {Component, h, Prop} from "@stencil/core";
 
 const component = "usa-button";
 
@@ -21,6 +21,10 @@ export class Button {
   @Prop() active?: boolean;
   @Prop() focused?: boolean;
   @Prop() href?: string;
+  @Prop() buttonType?:
+    | "button"
+    | "submit"
+    | "reset";
 
   getVariantClass(): string {
     switch (this.variant) {
@@ -43,7 +47,7 @@ export class Button {
   }
 
   getClasses(): string {
-    console.log(this.variant)
+    console.log(this.variant);
 
     const classes: string[] = [component, this.getVariantClass()];
 
@@ -78,14 +82,25 @@ export class Button {
     if (this.href) {
       return (
         <a class={this.getClasses()} href={this.href}>
-          <slot />
+          <slot/>
         </a>
       );
     }
+
+    if (this.buttonType) {
+      return (
+        <button class={this.getClasses()} type="submit" disabled={this.disabled}>
+          <slot/>
+        </button>
+      );
+    }
+
     return (
       <button class={this.getClasses()} disabled={this.disabled}>
-        <slot />
+        <slot/>
       </button>
     );
+
+
   }
 }
