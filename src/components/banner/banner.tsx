@@ -37,7 +37,7 @@ export class Banner {
               </div>
               <button
                 class="usa-accordion__button usa-banner__button"
-                aria-expanded="false"
+                aria-expanded={`${open}`}
                 aria-controls="gov-banner-demo"
                 onClick={() => {
                   this.toggleOpen();
@@ -51,6 +51,7 @@ export class Banner {
             class="usa-banner__content usa-accordion__content"
             id="gov-banner-demo"
             aria-hidden={!open}
+            hidden={!open}
           >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
