@@ -25,6 +25,7 @@ export const config: Config = {
       ]
     })
   ],
+  copy: [{src: "../uswds/src/img", dest: "build/img"}],
   testing: {
     testPathIgnorePatterns: ["uswds/"]
   }
