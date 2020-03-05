@@ -32,7 +32,7 @@ npm install
 ### Run the dev server
 
 ```bash
-npm run build
+npm run start
 ```
 
 ### Build the component for production
