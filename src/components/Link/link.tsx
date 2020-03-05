@@ -8,7 +8,6 @@ const component = "usa-link";
 })
 export class Link {
   @Prop() external?: boolean;
-  @Prop() visited?: boolean;
   @Prop() href?: string;
 
   getClasses(): string {
@@ -16,10 +15,6 @@ export class Link {
 
     if (this.external === true) {
       classes.push(`${component}--external`);
-    }
-
-    if (this.visited === true) {
-      classes.push(`usa-color-text-visited`);
     }
 
     return classes.join(" ");
