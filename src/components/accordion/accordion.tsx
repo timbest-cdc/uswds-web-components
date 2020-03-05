@@ -1,4 +1,5 @@
 import { Component, h, Prop } from "@stencil/core";
+import "../../../uswds/dist/js/uswds";
 
 @Component({
   tag: "usa-accordion",

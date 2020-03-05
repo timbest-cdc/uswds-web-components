@@ -1,8 +1,7 @@
 import { Component, h, Prop, Host } from "@stencil/core";
 
 @Component({
-  tag: "usa-accordion-item",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-accordion.scss"
+  tag: "usa-accordion-item"
 })
 export class AccordionItem {
   @Prop() accordionId!: string;
