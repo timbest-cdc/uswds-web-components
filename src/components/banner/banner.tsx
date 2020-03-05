@@ -1,6 +1,6 @@
 import { Prop, Component, h, getAssetPath } from "@stencil/core";
 // TODO: only include banner js
-import "../../../uswds/dist/js/uswds";
+import "../../uswds";
 
 @Component({
   tag: "usa-banner",

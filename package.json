@@ -17,6 +17,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "build.global": "cd uswds && npm install && npm run build:css && cd .. && sass src/global.scss src/global.css",
+    "build.js": "cd uswds && npm install && npm run build:js && cd .. && cp uswds/dist/js/uswds.js src/uswds.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e --screenshot",
     "test.coverage": "nyc npm run test",
