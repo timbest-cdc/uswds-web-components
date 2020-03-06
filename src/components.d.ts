@@ -19,6 +19,9 @@ export namespace Components {
   }
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
@@ -90,10 +93,14 @@ declare namespace LocalJSX {
   }
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
     'href'?: string;
+    'onButtonClicked'?: (event: CustomEvent<void>) => void;
     'size'?: "big";
     'unstyled'?: boolean;
     'variant'?: | "default"

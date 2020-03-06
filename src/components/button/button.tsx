@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import {Component, EventEmitter, h, Prop} from "@stencil/core";
 
 const component = "usa-button";
 
@@ -21,6 +21,12 @@ export class Button {
   @Prop() active?: boolean;
   @Prop() focused?: boolean;
   @Prop() href?: string;
+  @Prop() buttonType?:
+    | "button"
+    | "submit"
+    | "reset";
+  @Event()
+  buttonClicked: EventEmitter<void>;
 
   getVariantClass(): string {
     switch (this.variant) {
@@ -72,17 +78,32 @@ export class Button {
     return classes.join(" ");
   }
 
+  private handleClick() {
+    if (!this.disabled) {
+      this.buttonClicked.emit();
+    }
+  }
+
   render() {
     if (this.href) {
       return (
         <a class={this.getClasses()} href={this.href}>
-          <slot />
+          <slot/>
         </a>
       );
     }
+
+    if (this.buttonType) {
+      return (
+        <button class={this.getClasses()} type="submit" disabled={this.disabled} onClick={() => this.handleClick()}>
+          <slot/>
+        </button>
+      );
+    }
+
     return (
-      <button class={this.getClasses()} disabled={this.disabled}>
-        <slot />
+      <button class={this.getClasses()} disabled={this.disabled} onClick={() => this.handleClick()}>
+        <slot/>
       </button>
     );
   }
