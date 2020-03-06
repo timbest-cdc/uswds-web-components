@@ -21,9 +21,15 @@ export const config: Config = {
   plugins: [
     sass({
       injectGlobalPaths: [
-         "uswds/src/stylesheets/packages/_required.scss"
+        "uswds/src/stylesheets/packages/_required.scss",
+        "src/asset-paths.scss"
       ]
     })
+  ],
+  copy: [
+    { src: "../uswds/src/img", dest: "build/img" },
+    { src: "../uswds/src/fonts", dest: "build/fonts" },
+    { src: "../src/global.css", dest: "build/global.css" }
   ],
   testing: {
     testPathIgnorePatterns: ["uswds/"]

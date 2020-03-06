@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
-  <link rel="stylesheet" type="text/css" href="/../src/global.css">
-  <script type="module" src="/build/uswds-web-components.esm.js"></script>
-  <script nomodule src="/build/uswds-web-components.js"></script>
-</head>
-<body>
-  <usa-button variant="secondary">Hello</usa-button>
-  <usa-search/>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link rel="stylesheet" type="text/css" href="/build/global.css" />
+    <script type="module" src="/build/uswds-web-components.esm.js"></script>
+    <script nomodule src="/build/uswds-web-components.js"></script>
+  </head>
+  <body>
+    <usa-banner />
+    <usa-button variant="secondary">Hello</usa-button>
+    <usa-tag>Hello, Tags</usa-tag>
+    <usa-alert>
+      <span slot="header">Informative status</span>
+      <span slot="text">Lorem ipsum dolor sit amet</span>
+    </usa-alert>
+    <usa-link href="https://usds.gov">USDS.gov</usa-link>
+    <usa-link href="https://usds.gov" external>USDS.gov</usa-link>
+  </body>
 </html>

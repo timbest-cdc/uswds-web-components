@@ -10,6 +10,13 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface UsaAlert {
+    'interactive'?: boolean;
+    'variant'?: "success" | "warning" | "error" | "info";
+  }
+  interface UsaBanner {
+    'tld'?: "mil" | "gov";
+  }
   interface UsaButton {
     'active'?: boolean;
     'buttonType'?: | "button"
@@ -28,19 +35,62 @@ export namespace Components {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaLink {
+    'external'?: boolean;
+    'href'?: string;
+  }
+  interface UsaTag {}
 }
 
 declare global {
 
+
+  interface HTMLUsaAlertElement extends Components.UsaAlert, HTMLStencilElement {}
+  var HTMLUsaAlertElement: {
+    prototype: HTMLUsaAlertElement;
+    new (): HTMLUsaAlertElement;
+  };
+
+  interface HTMLUsaBannerElement extends Components.UsaBanner, HTMLStencilElement {}
+  var HTMLUsaBannerElement: {
+    prototype: HTMLUsaBannerElement;
+    new (): HTMLUsaBannerElement;
+  };
 
   interface HTMLUsaButtonElement extends Components.UsaButton, HTMLStencilElement {}
   var HTMLUsaButtonElement: {
     prototype: HTMLUsaButtonElement;
     new (): HTMLUsaButtonElement;
   };
+
+  interface HTMLUsaLinkElement extends Components.UsaLink, HTMLStencilElement {}
+  var HTMLUsaLinkElement: {
+    prototype: HTMLUsaLinkElement;
+    new (): HTMLUsaLinkElement;
+  };
+
+  interface HTMLUsaTagElement extends Components.UsaTag, HTMLStencilElement {}
+  var HTMLUsaTagElement: {
+    prototype: HTMLUsaTagElement;
+    new (): HTMLUsaTagElement;
+  };
+  interface HTMLElementTagNameMap {
+    'usa-alert': HTMLUsaAlertElement;
+    'usa-banner': HTMLUsaBannerElement;
+    'usa-button': HTMLUsaButtonElement;
+    'usa-link': HTMLUsaLinkElement;
+    'usa-tag': HTMLUsaTagElement;
+  }
 }
 
 declare namespace LocalJSX {
+  interface UsaAlert {
+    'interactive'?: boolean;
+    'variant'?: "success" | "warning" | "error" | "info";
+  }
+  interface UsaBanner {
+    'tld'?: "mil" | "gov";
+  }
   interface UsaButton {
     'active'?: boolean;
     'buttonType'?: | "button"
@@ -60,9 +110,18 @@ declare namespace LocalJSX {
     | "outline"
     | "outline-inverse";
   }
+  interface UsaLink {
+    'external'?: boolean;
+    'href'?: string;
+  }
+  interface UsaTag {}
 
   interface IntrinsicElements {
+    'usa-alert': UsaAlert;
+    'usa-banner': UsaBanner;
     'usa-button': UsaButton;
+    'usa-link': UsaLink;
+    'usa-tag': UsaTag;
   }
 }
 
@@ -72,7 +131,11 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'usa-alert': LocalJSX.UsaAlert & JSXBase.HTMLAttributes<HTMLUsaAlertElement>;
+      'usa-banner': LocalJSX.UsaBanner & JSXBase.HTMLAttributes<HTMLUsaBannerElement>;
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
+      'usa-link': LocalJSX.UsaLink & JSXBase.HTMLAttributes<HTMLUsaLinkElement>;
+      'usa-tag': LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
     }
   }
 }
