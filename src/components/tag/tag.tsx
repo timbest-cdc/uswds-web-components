@@ -5,7 +5,8 @@ const component = "usa-tag";
 // TODO add tag big?
 @Component({
   tag: "usa-tag",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-tag.scss"
+  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-tag.scss",
+  shadow: true
 })
 export class Tag {
   render() {

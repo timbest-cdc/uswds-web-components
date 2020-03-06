@@ -4,7 +4,8 @@ const component = "usa-link";
 
 @Component({
   tag: "usa-link",
-  styleUrl: "../../../uswds/src/stylesheets/elements/typography/_links.scss"
+  styleUrl: "../../../uswds/src/stylesheets/elements/typography/_links.scss",
+  shadow: true
 })
 export class Link {
   @Prop() external?: boolean;

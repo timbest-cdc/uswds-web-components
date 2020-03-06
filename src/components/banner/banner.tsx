@@ -1,16 +1,20 @@
-import { Prop, Component, h, getAssetPath } from "@stencil/core";
-// TODO: only include banner js
-import "../../uswds";
+import { Prop, Component, h, getAssetPath, State } from "@stencil/core";
 
 @Component({
   tag: "usa-banner",
   styleUrl: "../../../uswds/src/stylesheets/packages/_usa-banner.scss"
 })
 export class Banner {
+  @State() open?: boolean;
   @Prop() tld?: "mil" | "gov";
+
+  toggleOpen() {
+    this.open = !this.open;
+  }
 
   render() {
     const tld = this.tld ? this.tld : "gov";
+    const open = this.open ? this.open : false;
     return (
       <section class="usa-banner" aria-label="Official government website">
         <div class="usa-accordion">
@@ -27,14 +31,17 @@ export class Banner {
                 <p class="usa-banner__header-text">
                   An official website of the United States government
                 </p>
-                <p class="usa-banner__header-action" aria-hidden="true">
+                <p class="usa-banner__header-action" aria-hidden={`${!open}`}>
                   Here’s how you know
                 </p>
               </div>
               <button
                 class="usa-accordion__button usa-banner__button"
-                aria-expanded="false"
+                aria-expanded={`${open}`}
                 aria-controls="gov-banner-demo"
+                onClick={() => {
+                  this.toggleOpen();
+                }}
               >
                 <span class="usa-banner__button-text">Here’s how you know</span>
               </button>
@@ -43,6 +50,8 @@ export class Banner {
           <div
             class="usa-banner__content usa-accordion__content"
             id="gov-banner-demo"
+            aria-hidden={`${!open}`}
+            hidden={!open}
           >
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">

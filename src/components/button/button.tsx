@@ -4,7 +4,8 @@ const component = "usa-button";
 
 @Component({
   tag: "usa-button",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-button.scss"
+  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-button.scss",
+  shadow: true
 })
 export class Button {
   @Prop() variant?:

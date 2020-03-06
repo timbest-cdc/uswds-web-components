@@ -7,7 +7,12 @@ it("renders an anchor tag", async () => {
     html: `<usa-link href="https://designsystem.digital.gov/">USWDS</usa-link>`
   });
 
-  const expected = `<usa-link href="https://designsystem.digital.gov/"><a class="usa-link" href="https://designsystem.digital.gov/">USWDS</a></usa-link>`;
+  const expected = `<usa-link href="https://designsystem.digital.gov/">
+    <mock:shadow-root>
+      <a class="usa-link" href="https://designsystem.digital.gov/"><slot></slot></a>
+    </mock:shadow-root>
+    USWDS
+  </usa-link>`;
 
   expect(page.root).toEqualHtml(expected);
 });

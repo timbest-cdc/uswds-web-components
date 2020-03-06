@@ -7,6 +7,6 @@ it("renders a tag", async () => {
     html: `<usa-tag>New</usa-tag>`
   });
   expect(page.root).toEqualHtml(
-    `<usa-tag><span class="usa-tag">New</span></usa-tag>`
+    `<usa-tag><mock:shadow-root><span class="usa-tag"><slot></slot></span></mock:shadow-root>New</usa-tag>`
   );
 });

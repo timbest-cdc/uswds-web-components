@@ -4,7 +4,8 @@ const component = "usa-alert";
 
 @Component({
   tag: "usa-alert",
-  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-alert.scss"
+  styleUrl: "../../../uswds/src/stylesheets/packages/_usa-alert.scss",
+  shadow: true
 })
 export class Alert {
   @Prop() variant?: "success" | "warning" | "error" | "info";
