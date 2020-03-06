@@ -12,6 +12,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
@@ -35,18 +38,19 @@ declare global {
     prototype: HTMLUsaButtonElement;
     new (): HTMLUsaButtonElement;
   };
-  interface HTMLElementTagNameMap {
-    'usa-button': HTMLUsaButtonElement;
-  }
 }
 
 declare namespace LocalJSX {
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
     'href'?: string;
+    'onButtonClicked'?: (event: CustomEvent<void>) => void;
     'size'?: "big";
     'unstyled'?: boolean;
     'variant'?: | "default"
