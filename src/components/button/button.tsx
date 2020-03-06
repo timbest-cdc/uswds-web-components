@@ -1,4 +1,4 @@
-import {Component, EventEmitter, h, Prop} from "@stencil/core";
+import {Component, Event, EventEmitter, h, Prop} from "@stencil/core";
 
 const component = "usa-button";
 
@@ -26,7 +26,7 @@ export class Button {
     | "submit"
     | "reset";
   @Event()
-  buttonClicked: EventEmitter<void>;
+  buttonClicked?: EventEmitter<void>;
 
   getVariantClass(): string {
     switch (this.variant) {
@@ -79,7 +79,7 @@ export class Button {
   }
 
   private handleClick() {
-    if (!this.disabled) {
+    if (!this.disabled && this.buttonClicked) {
       this.buttonClicked.emit();
     }
   }
