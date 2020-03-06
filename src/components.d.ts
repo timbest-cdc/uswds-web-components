@@ -26,6 +26,9 @@ export namespace Components {
   }
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
@@ -44,6 +47,21 @@ export namespace Components {
     'href'?: string;
   }
   interface UsaTag {}
+  interface UsaTextInput {
+    'active'?: boolean;
+    'class'?: string;
+    'disabled'?: boolean;
+    'error'?: boolean;
+    'focused'?: boolean;
+    'hover'?: boolean;
+    'maxlength'?: number;
+    'name'?: string;
+    'readonly'?: boolean;
+    'size'?: number;
+    'success'?: boolean;
+    'type': string;
+    'value'?: string;
+  }
 }
 
 declare global {
@@ -90,6 +108,12 @@ declare global {
     prototype: HTMLUsaTagElement;
     new (): HTMLUsaTagElement;
   };
+
+  interface HTMLUsaTextInputElement extends Components.UsaTextInput, HTMLStencilElement {}
+  var HTMLUsaTextInputElement: {
+    prototype: HTMLUsaTextInputElement;
+    new (): HTMLUsaTextInputElement;
+  };
   interface HTMLElementTagNameMap {
     'usa-accordion': HTMLUsaAccordionElement;
     'usa-accordion-item': HTMLUsaAccordionItemElement;
@@ -98,6 +122,7 @@ declare global {
     'usa-button': HTMLUsaButtonElement;
     'usa-link': HTMLUsaLinkElement;
     'usa-tag': HTMLUsaTagElement;
+    'usa-text-input': HTMLUsaTextInputElement;
   }
 }
 
@@ -118,10 +143,14 @@ declare namespace LocalJSX {
   }
   interface UsaButton {
     'active'?: boolean;
+    'buttonType'?: | "button"
+    | "submit"
+    | "reset";
     'disabled'?: boolean;
     'focused'?: boolean;
     'hover'?: boolean;
     'href'?: string;
+    'onButtonClicked'?: (event: CustomEvent<void>) => void;
     'size'?: "big";
     'unstyled'?: boolean;
     'variant'?: | "default"
@@ -136,6 +165,21 @@ declare namespace LocalJSX {
     'href'?: string;
   }
   interface UsaTag {}
+  interface UsaTextInput {
+    'active'?: boolean;
+    'class'?: string;
+    'disabled'?: boolean;
+    'error'?: boolean;
+    'focused'?: boolean;
+    'hover'?: boolean;
+    'maxlength'?: number;
+    'name'?: string;
+    'readonly'?: boolean;
+    'size'?: number;
+    'success'?: boolean;
+    'type'?: string;
+    'value'?: string;
+  }
 
   interface IntrinsicElements {
     'usa-accordion': UsaAccordion;
@@ -145,6 +189,7 @@ declare namespace LocalJSX {
     'usa-button': UsaButton;
     'usa-link': UsaLink;
     'usa-tag': UsaTag;
+    'usa-text-input': UsaTextInput;
   }
 }
 
@@ -161,6 +206,7 @@ declare module "@stencil/core" {
       'usa-button': LocalJSX.UsaButton & JSXBase.HTMLAttributes<HTMLUsaButtonElement>;
       'usa-link': LocalJSX.UsaLink & JSXBase.HTMLAttributes<HTMLUsaLinkElement>;
       'usa-tag': LocalJSX.UsaTag & JSXBase.HTMLAttributes<HTMLUsaTagElement>;
+      'usa-text-input': LocalJSX.UsaTextInput & JSXBase.HTMLAttributes<HTMLUsaTextInputElement>;
     }
   }
 }
