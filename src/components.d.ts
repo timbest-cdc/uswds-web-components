@@ -16,6 +16,7 @@ export namespace Components {
   interface UsaAccordionItem {
     '_id': string;
     'heading': string;
+    'isActive'?: boolean;
   }
   interface UsaAlert {
     'interactive'?: boolean;
@@ -133,6 +134,10 @@ declare namespace LocalJSX {
   interface UsaAccordionItem {
     '_id'?: string;
     'heading': string;
+    'isActive'?: boolean;
+    'onRegisterItem'?: (event: CustomEvent<any>) => void;
+    'onSetActive'?: (event: CustomEvent<any>) => void;
+    'onUnregisterItem'?: (event: CustomEvent<any>) => void;
   }
   interface UsaAlert {
     'interactive'?: boolean;
